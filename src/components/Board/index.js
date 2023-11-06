@@ -1,7 +1,7 @@
 import { MENU_ITEMS } from "@/constants";
 import { useEffect, useLayoutEffect, useRef } from "react";
 import { useSelector,useDispatch } from 'react-redux';
-import { menuItemClick, actionItemClick } from '@/slice/menuSlice'
+import { actionItemClick } from '@/slice/menuSlice'
 import { socket } from "@/socket";
 const Board = () => {
     const dispatch = useDispatch()
@@ -34,9 +34,9 @@ const Board = () => {
             
         }
          dispatch(actionItemClick(null))
-       
-    },[actionMenuItem])
-
+        
+    },[actionMenuItem, dispatch])
+ 
     useEffect(()=>{
         if (!canvasRef.current) return
         const canvas = canvasRef.current;
